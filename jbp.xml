@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="content" method="upgrade">
+	<name>jbp</name>
+	<author>Hossein HassanNejad</author>
+	<creationDate>Feb 2022</creationDate>
+	<copyright>(C) 2022 Open Source Matters, Inc.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>hosseinspell@gmail.com</authorEmail>
+	<version>0.0.1</version>
+	<description>A Joomla Plugin for backup</description>
+	<files>
+		<filename plugin="testplugin">jbp.php</filename>
+	</files>
+</extension>
