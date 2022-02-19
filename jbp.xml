@@ -4,11 +4,11 @@
 	<author>Hossein HassanNejad</author>
 	<creationDate>Feb 2022</creationDate>
 	<copyright>(C) 2022 Open Source Matters, Inc.</copyright>
-	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<license>Apache License License version 2 or later; see LICENSE</license>
 	<authorEmail>hosseinspell@gmail.com</authorEmail>
 	<version>0.0.1</version>
 	<description>A Joomla Plugin for backup</description>
 	<files>
-		<filename plugin="testplugin">jbp.php</filename>
+		<filename plugin="jbp">jbp.php</filename>
 	</files>
 </extension>
