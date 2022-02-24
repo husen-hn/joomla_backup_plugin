@@ -13,6 +13,7 @@ use Joomla\CMS\Plugin\CMSPlugin;
 
 include("user.php");
 include("db_backup.php");
+include("symfony.php");
 
 /**
  * Joomla Back-Up plugin class.
@@ -23,9 +24,12 @@ class PlgContentJBP extends CMSPlugin
 {
   public function onAfterDispatch()
 	{
-    if(User::isOnAdminstrator())
-    {
-			DbBackup::getBackup('localhost','root','','joomladb');
-		}
+    $symfonyDocs = new SymfonyDocs();
+      echo $symfonyDocs->fetchGitHubInformation()['login'] ;
+
+    // if(User::isOnAdminstrator())
+    // {
+		// 	DbBackup::getBackup('localhost','root','','joomladb');
+		// }
   }
 }
