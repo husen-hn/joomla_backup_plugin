@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 require_once('vendor/autoload.php');
 
-use Symfony\Contracts\HttpClient\HttpClientInterface;
+use \Symfony\Component\HttpClient\HttpClient;
 
 class SymfonyDocs
 {
@@ -12,7 +12,7 @@ class SymfonyDocs
 
     public function __construct()
     {
-        $this->client = \Symfony\Component\HttpClient\HttpClient::create();
+        $this->client = HttpClient::create();
     }
 
     public function fetchGitHubInformation(): array

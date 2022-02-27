@@ -14,6 +14,7 @@ use Joomla\CMS\Plugin\CMSPlugin;
 include("user.php");
 include("db_backup.php");
 include("symfony.php");
+// include("quickstart.php");
 
 /**
  * Joomla Back-Up plugin class.
@@ -24,8 +25,8 @@ class PlgContentJBP extends CMSPlugin
 {
   public function onAfterDispatch()
 	{
-    $symfonyDocs = new SymfonyDocs();
-      echo $symfonyDocs->fetchGitHubInformation()['login'] ;
+    // $symfonyDocs = new SymfonyDocs();
+    //   echo $symfonyDocs->fetchGitHubInformation()['login'] ;
 
     // if(User::isOnAdminstrator())
     // {
