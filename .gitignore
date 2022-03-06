@@ -1,6 +1,6 @@
 credentials.json
 client_id.json
-token.json
+/google_drive/token.json
 composer.phar
 /vendor/
 /.vscode
