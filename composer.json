@@ -1,7 +1,6 @@
 {
     "require": {
         "vlucas/phpdotenv": "^5.4",
-        "symfony/http-client": "^6.0",
         "google/apiclient": "^2.0"
     }
 }
