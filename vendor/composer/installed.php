@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '55cb7e092cf1eb7d26009d203991284188e58005',
+        'reference' => '323b97a8f26ad27888ee4d4d095429ea8b72bd03',
         'name' => '__root__',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '55cb7e092cf1eb7d26009d203991284188e58005',
+            'reference' => '323b97a8f26ad27888ee4d4d095429ea8b72bd03',
             'dev_requirement' => false,
         ),
         'firebase/php-jwt' => array(
@@ -118,18 +118,6 @@
             'reference' => '996434e5492cb4c3edcb9168db6fbb1359ef965a',
             'dev_requirement' => false,
         ),
-        'php-http/async-client-implementation' => array(
-            'dev_requirement' => false,
-            'provided' => array(
-                0 => '*',
-            ),
-        ),
-        'php-http/client-implementation' => array(
-            'dev_requirement' => false,
-            'provided' => array(
-                0 => '*',
-            ),
-        ),
         'phpoption/phpoption' => array(
             'pretty_version' => '1.8.1',
             'version' => '1.8.1.0',
@@ -155,15 +143,6 @@
             'install_path' => __DIR__ . '/../psr/cache',
             'aliases' => array(),
             'reference' => '213f9dbc5b9bfbc4f8db86d2838dc968752ce13b',
-            'dev_requirement' => false,
-        ),
-        'psr/container' => array(
-            'pretty_version' => '2.0.2',
-            'version' => '2.0.2.0',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../psr/container',
-            'aliases' => array(),
-            'reference' => 'c71ecc56dfe541dbd90c5360474fbc405f8d5963',
             'dev_requirement' => false,
         ),
         'psr/http-client' => array(
@@ -244,30 +223,6 @@
             'reference' => 'c726b64c1ccfe2896cb7df2e1331c357ad1c8ced',
             'dev_requirement' => false,
         ),
-        'symfony/http-client' => array(
-            'pretty_version' => 'v6.0.3',
-            'version' => '6.0.3.0',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../symfony/http-client',
-            'aliases' => array(),
-            'reference' => '45b95017f6a20d564584bdee6a376c9a79caa316',
-            'dev_requirement' => false,
-        ),
-        'symfony/http-client-contracts' => array(
-            'pretty_version' => 'v3.0.0',
-            'version' => '3.0.0.0',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../symfony/http-client-contracts',
-            'aliases' => array(),
-            'reference' => '265f03fed057044a8e4dc159aa33596d0f48ed3f',
-            'dev_requirement' => false,
-        ),
-        'symfony/http-client-implementation' => array(
-            'dev_requirement' => false,
-            'provided' => array(
-                0 => '3.0',
-            ),
-        ),
         'symfony/polyfill-ctype' => array(
             'pretty_version' => 'v1.24.0',
             'version' => '1.24.0.0',
@@ -293,15 +248,6 @@
             'install_path' => __DIR__ . '/../symfony/polyfill-php80',
             'aliases' => array(),
             'reference' => '57b712b08eddb97c762a8caa32c84e037892d2e9',
-            'dev_requirement' => false,
-        ),
-        'symfony/service-contracts' => array(
-            'pretty_version' => 'v3.0.0',
-            'version' => '3.0.0.0',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../symfony/service-contracts',
-            'aliases' => array(),
-            'reference' => '36715ebf9fb9db73db0cb24263c79077c6fe8603',
             'dev_requirement' => false,
         ),
         'vlucas/phpdotenv' => array(
