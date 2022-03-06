@@ -1,0 +1,18 @@
+{
+    "name": "husen/jbp",
+    "require": {
+        "vlucas/phpdotenv": "^5.4",
+        "google/apiclient": "^2.12.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Husen\\Jbp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Hossein HassanNejad",
+            "email": "hosseinspell@gmail.com"
+        }
+    ]
+}
