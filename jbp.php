@@ -11,10 +11,9 @@ defined('_JEXEC') or die;
 
 use Joomla\CMS\Plugin\CMSPlugin;
 
-include("user.php");
-include("db_backup.php");
-include("symfony.php");
-// include("quickstart.php");
+include("user_intraction/user.php");
+include("backup/db_backup.php");
+include("google_drive/google_drive.php");
 
 /**
  * Joomla Back-Up plugin class.
@@ -25,6 +24,7 @@ class PlgContentJBP extends CMSPlugin
 {
   public function onAfterDispatch()
 	{
+
     // $symfonyDocs = new SymfonyDocs();
     //   echo $symfonyDocs->fetchGitHubInformation()['login'] ;
 
