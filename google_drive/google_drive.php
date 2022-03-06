@@ -2,9 +2,11 @@
 
 require __DIR__ . '/vendor/autoload.php';
 
-// if (php_sapi_name() != 'cli') {
-//     throw new Exception('This application must be run on the command line.');
-// }
+define('SCOPES', implode(' ', array(
+    Google_Service_Sheets::SPREADSHEETS,
+    Google_Service_Sheets::DRIVE,
+    Google_Service_Sheets::DRIVE_FILE)
+    ));
 
 /**
  * Returns an authorized API client.
@@ -14,10 +16,12 @@ function getClient()
 {
     $client = new Google_Client();
     $client->setApplicationName('Google Drive Activity API Quickstart');
-    $client->setScopes(Google_Service_DriveActivity::DRIVE_ACTIVITY_READONLY);
+    $client->setScopes(SCOPES);
     $client->setAuthConfig('credentials.json');
     $client->setAccessType('offline');
+    $client->setIncludeGrantedScopes(true);
     $client->setPrompt('select_account consent');
+    $client->setApprovalPrompt('force');
 
     // Load previously authorized token from a file, if it exists.
     // The file token.json stores the user's access and refresh tokens, and is
