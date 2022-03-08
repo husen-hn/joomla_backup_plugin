@@ -44,8 +44,43 @@ class DbBackup
       $return .= "\n\n\n";
     }
 
-    $handle = fopen('plugins/content/jbp/your_db_'.time().'.sql','w+');
-    fwrite($handle,$return);
-    fclose($handle);
+    $dir = __DIR__ . "/db_file";
+
+      // delete previus backup if exist
+      if (file_exists($dir)) {
+        DbBackup::deleteBackupFile($dir);
+      }
+
+      mkdir($dir);
+      $handle = fopen(__DIR__ . '/db_file/your_db_'.time().'.sql','w+');
+      fwrite($handle,$return);
+      fclose($handle);
+  }
+
+  static public function deleteBackupFile($dir) {
+    $files = glob( $dir . '*', GLOB_MARK );
+        foreach( $files as $file )
+        {
+          $dir_handle = opendir( $dir );
+          if( $dir_handle )
+          {
+            while( $file = readdir( $dir_handle ) )
+            {
+              if($file != "." && $file != "..")
+              {
+                if( ! is_dir( $dir."/".$file ) )
+                {
+                  unlink( $dir."/".$file );
+                }
+                else
+                {
+                  delete_directory($dir.'/'.$file);
+                }
+              }
+            }
+            closedir( $dir_handle );
+          }
+          rmdir( $dir );
+        }
   }
 }

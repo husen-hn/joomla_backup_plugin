@@ -24,13 +24,13 @@ class PlgContentJBP extends CMSPlugin
 {
   public function onAfterDispatch()
 	{
-
-    // $symfonyDocs = new SymfonyDocs();
-    //   echo $symfonyDocs->fetchGitHubInformation()['login'] ;
-
-    // if(User::isOnAdminstrator())
-    // {
-		// 	DbBackup::getBackup('localhost','root','','joomladb');
-		// }
+    $tokenPath = __DIR__ . '/google_drive/token.json';
+    if(User::isOnAdminstrator() && file_exists($tokenPath))
+    {
+      //TODO: check backup date to start
+			DbBackup::getBackup('localhost','root','','joomladb');
+      //TODO: upload backupfile to drive
+      //TODO: set backup date on db
+		}
   }
 }
