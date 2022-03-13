@@ -29,17 +29,24 @@ class PlgContentJBP extends CMSPlugin
     if(User::isOnAdminstrator() && file_exists($googleDrivetokenPath))
     {
       // check backup_date table is exist or not
-      // if(!BackupTable::isTableExist()) {
-      //   BackupTable::createBackupTable();
-      // }
+      if(BackupTable::isTableExist() === false) {
+        BackupTable::createBackupTable();
+      }
 
       $lastBackupDate = BackupTable::getLastBackupDate();
-      if(!$lastBackupDate) {
+      if($lastBackupDate === false) {
         BackupTable::setLastBackupDate();
-      } else {
-        //TODO: check last backup date and set limit to start backup process
       }
-      DbBackup::getBackup('localhost','root','','joomladb');
+
+      $currentDate = new DateTime();
+      $currentTime = strtotime($currentDate->format('Y-m-d H:i:s'));
+      $backupTime = strtotime($lastBackupDate);
+      if($currentTime - $backupTime > 60){
+
+      }
+
+      //TODO: check last backup date and set limit to start backup process
+      // DbBackup::getBackup('localhost','root','','joomladb');
       //TODO: upload backupfile to drive
       //TODO: delete backup file
       //TODO: update backup date on db

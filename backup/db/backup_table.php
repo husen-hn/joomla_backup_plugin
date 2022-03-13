@@ -7,7 +7,7 @@ class BackupTable {
     try {
     $db = Factory::getDBO();
     $query = $db->getQuery(true);
-    $query = "select 1 from `back_plugin_jbp` LIMIT 1";
+    $query = "SHOW TABLES LIKE 'back_plugin_jbp'";
 
     $db->setQuery($query);
     if(is_null($db->loadObject()))
@@ -38,10 +38,11 @@ class BackupTable {
   static function createBackupTable() {
     $db = Factory::getDBO();
     $query = $db->getQuery(true);
-    $query = "CREATE TABLE IF NOT EXISTS `back_plugin_jbp` (
-      `id` int(10) NOT NULL,
-      `date_last_backup` DATETIME NOT NULL,
-      PRIMARY KEY (`id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+    $query =
+    "CREATE TABLE IF NOT EXISTS back_plugin_jbp (
+      id INT AUTO_INCREMENT,
+      date_last_backup DATETIME NOT NULL,
+      PRIMARY KEY (id)) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 
     $db->setQuery($query);
     if(is_null($db->loadObject()))
@@ -51,10 +52,12 @@ class BackupTable {
   }
 
   static function setLastBackupDate() {
+    $currentDate = new DateTime();
+    $dateTime = $currentDate->format('Y-m-d H:i:s');
     $db = Factory::getDBO();
     $query = $db->getQuery(true);
-    $query = "INSERT INTO `back_plugin_jbp` (`id`, `date_last_backup`)
-    VALUES (2,CURRENT_TIME())";
+    $query = "INSERT INTO back_plugin_jbp (id, date_last_backup)
+    VALUES (2, '$dateTime')";
 
     $db->setQuery($query);
     if(is_null($db->loadObject()))
@@ -62,6 +65,4 @@ class BackupTable {
 
     return true;
   }
-
-
 }
