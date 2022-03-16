@@ -52,7 +52,7 @@ class DbBackup
       }
 
       mkdir($dir);
-      $handle = fopen(__DIR__ . '/db_file/your_db_'.time().'.sql','w+');
+      $handle = fopen(__DIR__ . '/db_file/jbp_backup.sql','w+');
       fwrite($handle,$return);
       fclose($handle);
   }
@@ -82,5 +82,19 @@ class DbBackup
           }
           rmdir( $dir );
         }
+  }
+
+  static function getZipFile() {
+    $source = __DIR__ . '/db_file/jbp_backup.sql';
+    $destination = __DIR__ . '/db_file/jbp_backup.zip';
+
+    $zip = new ZipArchive;
+    if ($zip->open($destination, ZIPARCHIVE::CREATE) === TRUE) {
+      $zip->addFile($source, 'jbp_backup.sql');
+      $zip->close();
+      return true;
+    } else {
+      return false;
+    }
   }
 }
