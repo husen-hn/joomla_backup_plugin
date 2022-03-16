@@ -10,7 +10,7 @@ class BackupTable {
     $query = "SHOW TABLES LIKE 'back_plugin_jbp'";
 
     $db->setQuery($query);
-    if(is_null($db->loadObject()))
+    if(is_null($db->execute()))
       return false;
 
       return true;
@@ -28,11 +28,11 @@ class BackupTable {
         ->from($db->quoteName('back_plugin_jbp'))
         ->where($db->quoteName('id'). ' = '. $db->quote(2));
 
-  $db->setQuery($query);
-  if(is_null($db->loadObject()))
-    return false;
+    $db->setQuery($query);
+    if(is_null($db->execute()))
+      return false;
 
-  return $db->loadObject()->date_last_backup;
+    return $db->loadObject()->date_last_backup;
   }
 
   static function createBackupTable() {
@@ -45,7 +45,7 @@ class BackupTable {
       PRIMARY KEY (id)) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 
     $db->setQuery($query);
-    if(is_null($db->loadObject()))
+    if(is_null($db->execute()))
       return false;
 
     return true;
@@ -56,11 +56,18 @@ class BackupTable {
     $dateTime = $currentDate->format('Y-m-d H:i:s');
     $db = Factory::getDBO();
     $query = $db->getQuery(true);
-    $query = "INSERT INTO back_plugin_jbp (id, date_last_backup)
-    VALUES (2, '$dateTime')";
+    $fields = array(
+      $db->quoteName("date_last_backup") . " = '$dateTime'",
+    );
+
+    $conditions = array(
+      $db->quoteName('id') . ' = 2'
+    );
+
+    $query->update($db->quoteName('back_plugin_jbp'))->set($fields)->where($conditions);
 
     $db->setQuery($query);
-    if(is_null($db->loadObject()))
+    if(is_null($db->execute()))
       return false;
 
     return true;
